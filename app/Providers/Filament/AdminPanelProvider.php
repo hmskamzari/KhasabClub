@@ -31,8 +31,6 @@ use Swis\Filament\Backgrounds\FilamentBackgroundsPlugin;
 use Swis\Filament\Backgrounds\ImageProviders\MyImages;
 use Backstage\FilamentMails\Facades\FilamentMails;
 use Backstage\FilamentMails\FilamentMailsPlugin;
-use App\Filament\Pages\Auth\Login;
-use MarcoGermani87\FilamentCaptcha\FilamentCaptcha;
 use Croustibat\FilamentJobsMonitor\FilamentJobsMonitorPlugin;
 
 class AdminPanelProvider extends PanelProvider
@@ -43,7 +41,7 @@ class AdminPanelProvider extends PanelProvider
             ->default()
             ->id('admin')
             ->path('admin')
-            ->login(Login::class)
+            ->login()
             ->profile()
             ->passwordReset()
             ->font('Almarai', url: asset('fonts/almarai/almarai.css'), provider: LocalFontProvider::class)
@@ -80,7 +78,6 @@ class AdminPanelProvider extends PanelProvider
                 DispatchServingFilamentEvent::class,
             ])
             ->plugins([
-                FilamentCaptcha::make(),
                 FilamentShieldPlugin::make(),
                 FilamentSpatieLaravelHealthPlugin::make()
                     ->authorize(fn() => auth()->user()?->can('View:HealthCheckResults') ?? false),
