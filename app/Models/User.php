@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Database\Factories\UserFactory;
+use Filament\Models\Contracts\FilamentUser;
 use Filament\Models\Contracts\HasAvatar;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -14,7 +15,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Permission\Traits\HasRoles;
 use Filament\Panel;
 
-class User extends Authenticatable implements HasAvatar
+class User extends Authenticatable implements FilamentUser, HasAvatar
 {
     /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable, HasRoles, LogsActivity;
@@ -69,12 +70,8 @@ class User extends Authenticatable implements HasAvatar
     }
 
 
-    // public function canAccessPanel(Panel $panel): bool
-    // {
-    //     // Option A: Allow EVERY registered user in your database to log in
-    //     return true;
-
-    //     // Option B: (Recommended for production) Restrict by specific email domain or specific user
-    //     // return str_ends_with($this->email, '@khasabclub.example');
-    // }
+    public function canAccessPanel(Panel $panel): bool
+    {
+        return true;
+    }
 }
