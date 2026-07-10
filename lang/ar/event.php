@@ -1,0 +1,152 @@
+<?php
+
+return [
+
+    'navigation' => [
+        'group'  => 'إدارة الملاعب',
+        'label'  => 'ملعب كرة القدم',
+        'plural' => 'ملاعب كرة القدم',
+    ],
+
+    'sections' => [
+        'information'       => 'معلومات الملعب',
+        'information_desc'  => 'أدخل التفاصيل الأساسية للملعب بكلا اللغتين',
+        'location_schedule' => 'الموقع والجدول الزمني',
+        'location_desc'     => 'حدد موقع الملعب والتواريخ المتاحة',
+        'recurring'         => 'إعدادات التوفر المتكرر',
+        'recurring_desc'    => 'تكوين ما إذا كان الملعب متاحًا في أيام محددة',
+        'media_status'      => 'الوسائط والحالة',
+        'media_desc'        => 'رفع صورة الملعب وتحديد الحالة',
+        'signage'           => 'الشاشة الرقمية',
+        'signage_desc'      => 'الهوية والمحتوى المعروض على شاشة العرض العامة لهذا الملعب',
+    ],
+
+    'fields' => [
+        'title_en'             => 'العنوان (إنجليزي)',
+        'title_ar'             => 'العنوان (عربي)',
+        'slug'                 => 'الرابط المختصر',
+        'slug_helper'          => 'يُولَّد تلقائيًا من العنوان الإنجليزي، ويمكنك تخصيصه',
+        'description_en'       => 'الوصف (إنجليزي)',
+        'description_ar'       => 'الوصف (عربي)',
+        'organizer_en'         => 'المنظِّم (إنجليزي)',
+        'organizer_ar'         => 'المنظِّم (عربي)',
+        'location_en'          => 'الموقع (إنجليزي)',
+        'location_ar'          => 'الموقع (عربي)',
+        'start_date'           => 'تاريخ البداية',
+        'end_date'             => 'تاريخ النهاية',
+        'max_attendees'        => 'السعة الاستيعابية للملعب',
+        'max_attendees_helper' => 'الحد الأقصى لعدد الحجوزات المتزامنة لهذا الملعب',
+        'is_recurring'         => 'هل الملعب متكرر؟',
+        'is_recurring_helper'  => 'فعّل هذا الخيار إذا كان الملعب متاحًا في أيام محددة من الأسبوع',
+        'recurring_days'       => 'اختر أيام الفتح',
+        'recurring_days_helper'=> 'سيكون الملعب متاحًا للحجز فقط في الأيام المحددة بين تاريخَي البداية والنهاية',
+        'image'                => 'صورة الملعب',
+        'image_helper'         => 'ارفع صورة (الحد الأقصى 2 ميغابايت). الحجم الموصى به: 1200×675 بكسل',
+        'status'               => 'حالة الملعب',
+        'status_helper'        => 'الملاعب المنشورة فقط هي التي تظهر للمستخدمين. الملاعب الخاصة تكون مخفية عن محركات البحث ولا تظهر إلا للمسؤولين أو للزوار الذين لديهم كلمة المرور.',
+        'password'             => 'كلمة مرور الوصول',
+        'password_helper'      => 'يجب على الزوار إدخال كلمة المرور هذه لعرض الملعب. المسؤولون يتجاوزون هذا الشرط دائمًا.',
+        'signage_logo'              => 'شعار الشاشة',
+        'signage_logo_helper'       => 'يستبدل الشعار الافتراضي في شاشة العرض',
+        'signage_background'       => 'خلفية الشاشة',
+        'signage_background_helper' => 'صورة خلفية بملء الشاشة لشاشة العرض',
+        'signage_qr'                => 'صورة رمز QR',
+        'signage_qr_helper'         => 'ارفع صورة رمز QR لعرضها (مثلاً رابط لخريطة أو صفحة معلومات)',
+        'signage_phone'             => 'رقم التواصل',
+        'signage_meeting_point_en'  => 'نقطة التجمع (إنجليزي)',
+        'signage_meeting_point_ar'  => 'نقطة التجمع (عربي)',
+        'signage_welcome_en'        => 'رسالة الترحيب (إنجليزي)',
+        'signage_welcome_ar'        => 'رسالة الترحيب (عربي)',
+        'signage_early_arrival'     => 'التواجد المبكر (بالدقائق)',
+        'signage_gathering_alert'   => 'تنبيه التجمع (دقائق قبل الانطلاق)',
+        'signage_ready_threshold'   => 'حد "يرجى الاستعداد" (بالدقائق)',
+        'signage_soon_threshold'    => 'حد "قريبًا" (بالدقائق)',
+        'signage_upcoming_count'    => 'عدد الفترات القادمة المعروضة',
+        'signage_language_switch'        => 'تبديل اللغة تلقائيًا كل',
+        'signage_language_switch_helper' => 'يبدّل الشاشة تلقائيًا بين الإنجليزية والعربية كل N ثانية. ضع 0 للتعطيل.',
+        'signage_enabled'           => 'تفعيل شاشة العرض',
+        'signage_enabled_helper'    => 'أوقف هذا الخيار لتعطيل صفحة العرض العامة لهذا الملعب',
+    ],
+
+    'placeholders' => [
+        'organizer_en' => 'Organization or club managing the court',
+        'organizer_ar' => 'الجهة أو النادي المسؤول عن الملعب',
+        'location_en' => 'e.g., Khasab Club, Khasab',
+        'location_ar' => 'مثال: نادي خصب، خصب',
+    ],
+
+    'options' => [
+        'status' => [
+            'draft'     => 'مسودة',
+            'published' => 'منشور',
+            'cancelled' => 'ملغي',
+            'private'   => 'خاص (محمي بكلمة مرور)',
+        ],
+        'days' => [
+            'monday'    => 'الاثنين',
+            'tuesday'   => 'الثلاثاء',
+            'wednesday' => 'الأربعاء',
+            'thursday'  => 'الخميس',
+            'friday'    => 'الجمعة',
+            'saturday'  => 'السبت',
+            'sunday'    => 'الأحد',
+        ],
+    ],
+
+    'columns' => [
+        'image'        => 'الصورة',
+        'title'        => 'العنوان',
+        'organizer'    => 'المنظِّم',
+        'location'     => 'الموقع',
+        'start_date'   => 'تاريخ البداية',
+        'end_date'     => 'تاريخ النهاية',
+        'is_recurring' => 'متكرر',
+        'status'       => 'الحالة',
+        'bookings'     => 'الحجوزات',
+        'capacity'     => 'الطاقة الاستيعابية',
+        'created_at'   => 'تاريخ الإنشاء',
+        'updated_at'   => 'تاريخ التعديل',
+    ],
+
+    'filters' => [
+        'status'          => 'الحالة',
+        'recurring'       => 'التوفر المتكرر',
+        'recurring_all'   => 'جميع الملاعب',
+        'recurring_true'  => 'المتكرر فقط',
+        'recurring_false' => 'غير المتكرر فقط',
+        'start_date'      => 'تاريخ البداية',
+        'start_from'      => 'تاريخ البداية من',
+        'start_until'     => 'تاريخ البداية حتى',
+        'indicator_from'  => 'من: :date',
+        'indicator_until' => 'حتى: :date',
+    ],
+
+    'actions' => [
+        'new_event'        => 'ملعب جديد',
+        'view_on_site'     => 'عرض في الموقع',
+        'duplicate'        => 'نسخ',
+        'publish_selected' => 'نشر المحدد',
+        'move_to_draft'    => 'نقل إلى المسودة',
+        'create_first'     => 'أنشئ أول ملعب',
+    ],
+
+    'empty_state' => [
+        'heading'     => 'لا توجد ملاعب بعد',
+        'description' => 'أنشئ أول ملعب كرة قدم للبدء في استقبال الحجوزات.',
+    ],
+
+    'notifications' => [
+        'duplicated'      => 'تم نسخ الملعب',
+        'duplicated_body' => 'تم نسخ الملعب بنجاح.',
+        'published'       => 'تم نشر الملاعب',
+        'moved_to_draft'  => 'تم نقل الملاعب إلى المسودة',
+        'created'         => 'تم إنشاء الملعب بنجاح',
+        'updated'         => 'تم تحديث الملعب بنجاح',
+    ],
+
+    'suffix' => [
+        'people' => 'شخص',
+        'seconds' => 'ثانية',
+    ],
+
+];

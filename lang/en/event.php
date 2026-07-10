@@ -1,0 +1,152 @@
+<?php
+
+return [
+
+    'navigation' => [
+        'group'  => 'Court Management',
+        'label'  => 'Football Court',
+        'plural' => 'Football Courts',
+    ],
+
+    'sections' => [
+        'information'       => 'Court Information',
+        'information_desc'  => 'Enter the basic court details in both languages',
+        'location_schedule' => 'Location & Schedule',
+        'location_desc'     => 'Set the court location and available dates',
+        'recurring'         => 'Recurring Availability Settings',
+        'recurring_desc'    => 'Configure if this court is open on specific days',
+        'media_status'      => 'Media & Status',
+        'media_desc'        => 'Upload a court photo and set status',
+        'signage'           => 'Digital Signage',
+        'signage_desc'      => 'Branding and content shown on the public display screen for this court',
+    ],
+
+    'fields' => [
+        'title_en'         => 'Title (English)',
+        'title_ar'         => 'Title (Arabic)',
+        'slug'             => 'Slug',
+        'slug_helper'      => 'Auto-generated from English title, but you can customize it',
+        'description_en'   => 'Description (English)',
+        'description_ar'   => 'Description (Arabic)',
+        'organizer_en'     => 'Organizer (English)',
+        'organizer_ar'     => 'Organizer (Arabic)',
+        'location_en'      => 'Location (English)',
+        'location_ar'      => 'Location (Arabic)',
+        'start_date'       => 'Start Date',
+        'end_date'         => 'End Date',
+        'max_attendees'    => 'Court Capacity',
+        'max_attendees_helper' => 'Maximum number of concurrent bookings for this court',
+        'is_recurring'     => 'Is Recurring Availability?',
+        'is_recurring_helper' => 'Enable if the court is open on specific weekdays',
+        'recurring_days'   => 'Select Open Days',
+        'recurring_days_helper' => 'The court will only be bookable on these selected days between start and end dates',
+        'image'            => 'Court Photo',
+        'image_helper'     => 'Upload a photo (max 2MB). Recommended size: 1200x675px',
+        'status'           => 'Court Status',
+        'status_helper'    => 'Only published courts are visible to users. Private courts are hidden from search engines and only visible to Administrators or visitors with the password.',
+        'password'         => 'Access Password',
+        'password_helper'  => 'Visitors must enter this password to view the court. Administrators always bypass it.',
+        'signage_logo'              => 'Screen Logo',
+        'signage_logo_helper'       => 'Overrides the default logo on the signage screen',
+        'signage_background'       => 'Screen Background',
+        'signage_background_helper' => 'Full-screen background image for the signage screen',
+        'signage_qr'                => 'QR Code Image',
+        'signage_qr_helper'         => 'Upload a QR code image to display (e.g. linking to a map or info page)',
+        'signage_phone'             => 'Contact Phone',
+        'signage_meeting_point_en'  => 'Meeting Point (English)',
+        'signage_meeting_point_ar'  => 'Meeting Point (Arabic)',
+        'signage_welcome_en'        => 'Welcome Message (English)',
+        'signage_welcome_ar'        => 'Welcome Message (Arabic)',
+        'signage_early_arrival'     => 'Early Arrival (minutes)',
+        'signage_gathering_alert'   => 'Gathering Alert (minutes before)',
+        'signage_ready_threshold'   => '"Get Ready" Threshold (minutes)',
+        'signage_soon_threshold'    => '"Coming Soon" Threshold (minutes)',
+        'signage_upcoming_count'    => 'Upcoming Slots to Show',
+        'signage_language_switch'        => 'Auto Language Switch Every',
+        'signage_language_switch_helper' => 'Automatically alternates the screen between English and Arabic every N seconds. Set 0 to disable.',
+        'signage_enabled'           => 'Signage Screen Enabled',
+        'signage_enabled_helper'    => 'Turn off to disable the public signage page for this court',
+    ],
+
+    'placeholders' => [
+        'organizer_en' => 'Organization or club managing the court',
+        'organizer_ar' => 'الجهة أو النادي المسؤول عن الملعب',
+        'location_en' => 'e.g., Khasab Club, Khasab',
+        'location_ar' => 'مثال: نادي خصب، خصب',
+    ],
+
+    'options' => [
+        'status' => [
+            'draft'     => 'Draft',
+            'published' => 'Published',
+            'cancelled' => 'Cancelled',
+            'private'   => 'Private (Password Protected)',
+        ],
+        'days' => [
+            'monday'    => 'Monday',
+            'tuesday'   => 'Tuesday',
+            'wednesday' => 'Wednesday',
+            'thursday'  => 'Thursday',
+            'friday'    => 'Friday',
+            'saturday'  => 'Saturday',
+            'sunday'    => 'Sunday',
+        ],
+    ],
+
+    'columns' => [
+        'image'       => 'Image',
+        'title'       => 'Title',
+        'organizer'   => 'Organizer',
+        'location'    => 'Location',
+        'start_date'  => 'Start Date',
+        'end_date'    => 'End Date',
+        'is_recurring'=> 'Recurring',
+        'status'      => 'Status',
+        'bookings'    => 'Bookings',
+        'capacity'    => 'Capacity',
+        'created_at'  => 'Created At',
+        'updated_at'  => 'Updated At',
+    ],
+
+    'filters' => [
+        'status'           => 'Status',
+        'recurring'        => 'Recurring Availability',
+        'recurring_all'    => 'All courts',
+        'recurring_true'   => 'Recurring only',
+        'recurring_false'  => 'Non-recurring only',
+        'start_date'       => 'Start Date',
+        'start_from'       => 'Start Date From',
+        'start_until'      => 'Start Date Until',
+        'indicator_from'   => 'Start from: :date',
+        'indicator_until'  => 'Start until: :date',
+    ],
+
+    'actions' => [
+        'new_event'       => 'New Court',
+        'view_on_site'    => 'View on Site',
+        'duplicate'       => 'Duplicate',
+        'publish_selected'=> 'Publish Selected',
+        'move_to_draft'   => 'Move to Draft',
+        'create_first'    => 'Create your first court',
+    ],
+
+    'empty_state' => [
+        'heading'     => 'No courts yet',
+        'description' => 'Create your first football court to get started with bookings.',
+    ],
+
+    'notifications' => [
+        'duplicated'        => 'Court duplicated',
+        'duplicated_body'   => 'The court has been duplicated successfully.',
+        'published'         => 'Courts published',
+        'moved_to_draft'    => 'Courts moved to draft',
+        'created'           => 'Court created successfully',
+        'updated'           => 'Court updated successfully',
+    ],
+
+    'suffix' => [
+        'people' => 'people',
+        'seconds' => 'seconds',
+    ],
+
+];
