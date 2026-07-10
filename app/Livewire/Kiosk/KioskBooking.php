@@ -56,10 +56,7 @@ class KioskBooking extends Component
     {
         $this->selectedDate = null;
         $this->selectedSlot = null;
-        $this->ticketQuantities = [];
-        $this->ticketTypeRemaining = [];
-        $this->slotRemainingCapacity = 0;
-        $this->ticketTypeServices = [];
+        $this->ticketTypeId = null;
         $this->attendees = [];
         $this->copyContactToAll = false;
         $this->agreedToTerms = false;
@@ -184,7 +181,7 @@ class KioskBooking extends Component
     protected function showConfirmation(Booking $booking): void
     {
         $this->confirmedBooking = $booking->load(['event', 'timeSlot', 'attendees', 'extraServices']);
-        $this->step = 7;
+        $this->step = 5;
 
         $this->dispatch('print-receipt', receipt: [
             'booking_reference' => $booking->booking_reference,
@@ -215,7 +212,6 @@ class KioskBooking extends Component
             'soldOutDates'    => $soldOutDates,
             'timeSlots'       => $timeSlots,
             'ticketTypes'     => isset($this->event) ? $this->loadedTicketTypes() : collect(),
-            'extraServices'   => isset($this->event) ? $this->loadedExtraServices() : collect(),
             'showEmail'       => $this->showEmail,
             'showPhone'       => $this->showPhone,
             'showDateOfBirth' => $this->showDateOfBirth,

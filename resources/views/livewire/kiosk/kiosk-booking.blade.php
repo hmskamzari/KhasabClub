@@ -74,16 +74,16 @@
         @endif
 
         {{-- ════════════════════════════
-             STEPS 1–5 — shared with the public web booking flow
+             STEPS 1–3 — shared with the public web booking flow
         ════════════════════════════ --}}
-        @if ($step >= 1 && $step <= 5)
+        @if ($step >= 1 && $step <= 3)
             @include('livewire.partials.booking-wizard-steps')
         @endif
 
         {{-- ════════════════════════════
-             STEP 6 — Payment Method
+             STEP 4 — Payment Method
         ════════════════════════════ --}}
-        @if ($step === 6)
+        @if ($step === 4)
             <div class="max-w-2xl mx-auto">
                 <h2 class="text-3xl font-bold text-gray-900 mb-1 text-center">{{ __('kiosk_booking.step6.heading') }}</h2>
                 <p class="text-gray-500 text-lg mb-8 text-center">{{ __('kiosk_booking.step6.subheading') }}</p>
@@ -162,9 +162,9 @@
         @endif
 
         {{-- ════════════════════════════
-             STEP 7 — Confirmation
+             STEP 5 — Confirmation
         ════════════════════════════ --}}
-        @if ($step === 7 && $confirmedBooking)
+        @if ($step === 5 && $confirmedBooking)
             <div class="max-w-xl mx-auto text-center">
                 @if ($confirmedBooking->payment_status === 'paid')
                     <div class="text-7xl mb-4">✅</div>

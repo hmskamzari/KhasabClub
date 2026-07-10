@@ -149,16 +149,12 @@
                     $steps = [
                         1 => __('event_booking.steps.date'),
                         2 => __('event_booking.steps.time'),
-                        3 => __('event_booking.steps.tickets'),
+                        3 => __('event_booking.steps.details'),
+                        4 => __('event_booking.steps.payment'),
                     ];
-                    if ($extraServices->isNotEmpty()) {
-                        $steps[4] = __('event_booking.steps.extras');
-                    }
-                    $steps[5] = __('event_booking.steps.details');
-                    $steps[6] = __('event_booking.steps.payment');
                 @endphp
                 @foreach ($steps as $num => $label)
-                    <div class="flex items-center {{ $num < 6 ? 'flex-1' : '' }}">
+                    <div class="flex items-center {{ $num < 4 ? 'flex-1' : '' }}">
                         <div class="flex items-center gap-2 shrink-0">
                             <div
                                 class="w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-colors
@@ -182,7 +178,7 @@
                                 {{ $label }}
                             </span>
                         </div>
-                        @if ($num < 6)
+                        @if ($num < 4)
                             <div
                                 class="flex-1 h-0.5 mx-2 sm:mx-3 transition-colors
                                 {{ $step > $num ? 'bg-green-400' : 'bg-gray-200' }}">
@@ -200,9 +196,9 @@
         @include('livewire.partials.booking-wizard-steps')
 
         {{-- ════════════════════════════
-             STEP 6 — Payment
+             STEP 4 — Payment
         ════════════════════════════ --}}
-        @if ($step === 6)
+        @if ($step === 4)
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
                 {{-- Payment options (2/3 width) --}}
@@ -413,69 +409,29 @@
                                 </div>
                             </div>
 
-                            {{-- Tickets breakdown --}}
+                            {{-- Ticket / price --}}
                             <div class="pt-3 border-t border-gray-100">
-                                <p class="text-xs text-gray-400 uppercase tracking-wider font-bold mb-2">
-                                    {{ __('event_booking.summary.tickets') }}</p>
-                                @foreach ($ticketTypes as $ticketType)
-                                    @php $qty = $ticketQuantities[$ticketType->id] ?? 0; @endphp
-                                    @if ($qty > 0)
-                                        <div class="flex justify-between text-gray-600 text-xs mb-1">
-                                            <span
-                                                class="truncate pr-2">{{ $ticketType->getTranslation('name', app()->getLocale()) }}
-                                                × {{ $qty }}</span>
-                                            <span
-                                                class="shrink-0">{{ $ticketType->price > 0 ? 'OMR' . number_format($ticketType->price * $qty, 3) : __('event_booking.step3.free') }}</span>
-                                        </div>
-                                    @endif
-                                @endforeach
+                                @php $selectedTicketType = $ticketTypes->find($ticketTypeId); @endphp
+                                @if ($selectedTicketType)
+                                    <div class="flex justify-between items-center text-gray-700 text-xs">
+                                        <span
+                                            class="truncate pr-2">{{ $selectedTicketType->getTranslation('name', app()->getLocale()) }}</span>
+                                        <span
+                                            class="shrink-0">{{ $selectedTicketType->price > 0 ? 'OMR' . number_format($selectedTicketType->price, 3) : __('event_booking.step3.free') }}</span>
+                                    </div>
+                                @endif
                             </div>
 
-                            {{-- Attendees breakdown --}}
+                            {{-- Attendee --}}
                             @if (count($attendees))
                                 <div class="pt-3 border-t border-gray-100">
                                     <p class="text-xs text-gray-400 uppercase tracking-wider font-bold mb-2">
                                         {{ __('event_booking.summary.attendees') }}</p>
                                     @foreach ($attendees as $attendee)
-                                        @php $attendeeTicketType = $ticketTypes->find($attendee['ticket_type_id'] ?? null); @endphp
                                         <div class="flex justify-between items-center text-gray-700 mb-1">
                                             <span
                                                 class="truncate pr-2">{{ trim(($attendee['first_name'] ?? '') . ' ' . ($attendee['last_name'] ?? '')) ?: '—' }}</span>
-                                            <span
-                                                class="shrink-0 text-gray-400 text-xs truncate max-w-[40%]">{{ $attendeeTicketType?->getTranslation('name', app()->getLocale()) }}</span>
                                         </div>
-                                    @endforeach
-                                </div>
-                            @endif
-
-                            @php
-                                $hasServices = collect($ticketTypeServices)->flatten()->sum() > 0;
-                            @endphp
-                            @if ($hasServices)
-                                <div class="pt-3 border-t border-gray-100">
-                                    <p class="text-xs text-gray-400 uppercase tracking-wider font-bold mb-2">
-                                        {{ __('event_booking.summary.extra_services') }}</p>
-                                    @foreach ($ticketTypes as $ticketType)
-                                        @php
-                                            $qty = $ticketQuantities[$ticketType->id] ?? 0;
-                                            $serviceCounts = $ticketTypeServices[$ticketType->id] ?? [];
-                                        @endphp
-                                        @if ($qty > 0 && !empty($serviceCounts))
-                                            <p class="text-xs text-gray-400 mb-1">
-                                                {{ $ticketType->getTranslation('name', app()->getLocale()) }}</p>
-                                            @foreach ($serviceCounts as $serviceId => $count)
-                                                @php $svc = $count > 0 ? $extraServices->find($serviceId) : null; @endphp
-                                                @if ($svc)
-                                                    <div class="flex justify-between text-gray-600 text-xs mb-1">
-                                                        <span
-                                                            class="truncate pr-2">{{ $svc->getTranslation('name', app()->getLocale()) }}
-                                                            × {{ $count }}</span>
-                                                        <span
-                                                            class="shrink-0">OMR{{ number_format($svc->price * $count, 3) }}</span>
-                                                    </div>
-                                                @endif
-                                            @endforeach
-                                        @endif
                                     @endforeach
                                 </div>
                             @endif

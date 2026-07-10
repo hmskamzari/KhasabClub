@@ -10,8 +10,6 @@ return [
     'steps' => [
         'date'    => 'Date',
         'time'    => 'Time',
-        'tickets' => 'Booking',
-        'extras'  => 'Extras',
         'details' => 'Details',
         'payment' => 'Payment',
     ],
@@ -52,10 +50,8 @@ return [
     'step2' => [
         'heading'          => 'Choose a Time Slot',
         'subheading'       => 'Available slots for',
-        'full'             => 'Full',
-        'almost_full'      => 'Almost Full',
+        'full'             => 'Booked',
         'available'        => 'Available',
-        'spots_remaining'  => 'spots remaining',
     ],
 
     // ── Step 3 — Booking ──────────────────────────────────────────────────────

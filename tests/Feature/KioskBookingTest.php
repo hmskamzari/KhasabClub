@@ -89,19 +89,11 @@ class KioskBookingTest extends TestCase
         $test->call('selectSlot', $this->slot->id);
         $test->assertSet('step', 3);
 
-        $test->call('incrementQuantity', $this->ticketType->id);
-        $test->call('nextStep');
-
-        if ($test->get('step') === 4) {
-            $test->call('nextStep');
-        }
-        $test->assertSet('step', 5);
-
         $this->fillAttendeeZero($test, $suffix);
 
         $test->call('goToPaymentStep');
         $test->assertHasNoErrors();
-        $test->assertSet('step', 6);
+        $test->assertSet('step', 4);
 
         return $test;
     }
@@ -116,7 +108,7 @@ class KioskBookingTest extends TestCase
 
         $test->call('onCardTapped', 'CARD1');
         $test->assertHasNoErrors();
-        $test->assertSet('step', 7);
+        $test->assertSet('step', 5);
 
         $booking = Booking::latest('id')->first();
         $this->assertNotNull($booking);
@@ -148,7 +140,7 @@ class KioskBookingTest extends TestCase
         $bookingCountBefore = Booking::count();
         $test->call('onCardTapped', 'CARD2');
 
-        $test->assertSet('step', 6);
+        $test->assertSet('step', 4);
         $this->assertSame($bookingCountBefore, Booking::count());
 
         $card->refresh();
@@ -166,7 +158,7 @@ class KioskBookingTest extends TestCase
         $bookingCountBefore = Booking::count();
         $test->call('onCardTapped', 'CARD3');
 
-        $test->assertSet('step', 6);
+        $test->assertSet('step', 4);
         $this->assertSame($bookingCountBefore, Booking::count());
     }
 
@@ -178,7 +170,7 @@ class KioskBookingTest extends TestCase
         $bookingCountBefore = Booking::count();
         $test->call('onCardTapped', 'DOES-NOT-EXIST');
 
-        $test->assertSet('step', 6);
+        $test->assertSet('step', 4);
         $this->assertSame($bookingCountBefore, Booking::count());
     }
 
@@ -187,7 +179,7 @@ class KioskBookingTest extends TestCase
         $test = $this->driveToPaymentStep('c1');
         $test->call('payAtCounter');
         $test->assertHasNoErrors();
-        $test->assertSet('step', 7);
+        $test->assertSet('step', 5);
 
         $booking = Booking::latest('id')->first();
         $this->assertSame('kiosk', $booking->source);
@@ -207,7 +199,7 @@ class KioskBookingTest extends TestCase
         $test->call('onCardTapped', 'CARD5');
 
         $this->assertSame($bookingCountBefore, Booking::count());
-        $test->assertSet('step', 6);
+        $test->assertSet('step', 4);
     }
 
     public function test_inactive_kiosk_does_not_expose_booking_flow(): void

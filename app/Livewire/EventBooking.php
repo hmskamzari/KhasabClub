@@ -84,37 +84,13 @@ class EventBooking extends Component
                 throw new Exception(__('Payment gateway is not configured. Please contact support.'));
             }
 
-            $ticketTypesById   = $this->loadedTicketTypes()->keyBy('id');
-            $extraServicesById = $this->loadedExtraServices()->keyBy('id');
+            $ticketType = $this->loadedTicketTypes()->firstWhere('id', $this->ticketTypeId);
 
-            // Build product line(s) — one line per distinct ticket type selected
-            $products = [];
-            foreach ($this->ticketQuantities as $typeId => $qty) {
-                if ($qty <= 0) continue;
-                $ticketType = $ticketTypesById[$typeId] ?? null;
-                if (!$ticketType) continue;
-                $products[] = [
-                    'name'        => $ticketType->getTranslation('name', 'en'),
-                    'quantity'    => $qty,
-                    'unit_amount' => $thawani->toBasisa((float) $ticketType->price),
-                ];
-            }
-
-            // Add extra-service lines
-            foreach ($this->ticketTypeServices as $typeId => $serviceCounts) {
-                $qty = $this->ticketQuantities[$typeId] ?? 0;
-                if ($qty <= 0 || empty($serviceCounts)) continue;
-                foreach ($serviceCounts as $serviceId => $count) {
-                    if ($count <= 0) continue;
-                    $service = $extraServicesById[$serviceId] ?? null;
-                    if (!$service) continue;
-                    $products[] = [
-                        'name'        => $service->getTranslation('name', 'en'),
-                        'quantity'    => $count,
-                        'unit_amount' => $thawani->toBasisa((float) $service->price),
-                    ];
-                }
-            }
+            $products = [[
+                'name'        => $ticketType?->getTranslation('name', 'en') ?? $this->event->getTranslation('title', 'en'),
+                'quantity'    => 1,
+                'unit_amount' => $thawani->toBasisa((float) ($ticketType?->price ?? 0)),
+            ]];
 
             $response = $thawani->createSession([
                 'client_reference_id' => $booking->booking_reference,
@@ -179,7 +155,6 @@ class EventBooking extends Component
             'soldOutDates'    => $soldOutDates,
             'timeSlots'       => $timeSlots,
             'ticketTypes'     => $this->loadedTicketTypes(),
-            'extraServices'   => $this->loadedExtraServices(),
             'showEmail'       => $this->showEmail,
             'showPhone'       => $this->showPhone,
             'showDateOfBirth' => $this->showDateOfBirth,
