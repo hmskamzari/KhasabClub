@@ -47,7 +47,7 @@
 </style>
 </head>
 <body>
-    <img class="logo" src="data:image/jpeg;base64,{{ $logoBase64 ?? '' }}" alt="logo">
+    <img class="logo" src="data:image/png;base64,{{ $logoBase64 ?? '' }}" alt="logo">
     <div class="org-name">{{ $appName }}</div>
     <div class="doc-title">{{ $title }}</div>
     <div class="period">{{ $periodLabel }}</div>

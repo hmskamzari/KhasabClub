@@ -18,7 +18,7 @@
                 @endif
             </div>
 
-            <img src="{{ asset('storage/images/horizontalLogo-03.svg') }}" alt="Logo"
+            <img src="{{ asset('storage/images/khasabclub_logo-removebg-preview.png') }}" alt="Logo"
                 class="h-20 w-auto mx-auto mb-8">
 
             <div class="text-6xl mb-4">🔒</div>

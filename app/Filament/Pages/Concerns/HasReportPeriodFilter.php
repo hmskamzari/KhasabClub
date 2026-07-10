@@ -101,7 +101,7 @@ trait HasReportPeriodFilter
 
     protected function getLogoBase64(): string
     {
-        $path = storage_path('app/public/avatars/logo.jpg');
+        $path = storage_path('app/public/images/khasabclub_logo-removebg-preview.png');
 
         return file_exists($path) ? base64_encode(file_get_contents($path)) : '';
     }

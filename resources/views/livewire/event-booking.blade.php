@@ -17,7 +17,7 @@
                 @endif
             </div>
 
-            <img src="{{ asset('storage/images/horizontalLogo-03.svg') }}" alt="Logo"
+            <img src="{{ asset('storage/images/khasabclub_logo-removebg-preview.png') }}" alt="Logo"
                 class="h-20 w-auto mx-auto mb-8">
 
             <div class="text-6xl mb-4">🛠️</div>
@@ -57,7 +57,7 @@
                 @endif
             </div>
 
-            <img src="{{ asset('storage/images/horizontalLogo-03.svg') }}" alt="Logo"
+            <img src="{{ asset('storage/images/khasabclub_logo-removebg-preview.png') }}" alt="Logo"
                 class="h-20 w-auto mx-auto mb-8">
 
             <div class="text-6xl mb-4">🔒</div>
@@ -124,7 +124,7 @@
                 <h1 class="text-2xl sm:text-3xl font-bold leading-tight">
                     {{ $event->getTranslation('title', app()->getLocale()) }}
                 </h1>
-                <img src="{{ asset('storage/images/horizontalLogo-03.svg') }}" alt="Logo"
+                <img src="{{ asset('storage/images/khasabclub_logo-removebg-preview.png') }}" alt="Logo"
                     class="h-40 sm:h-40 w-auto shrink-0">
             </div>
             <p class="mt-2 text-blue-100 text-base sm:text-lg line-clamp-4">

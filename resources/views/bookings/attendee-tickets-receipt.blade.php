@@ -209,7 +209,7 @@
     @foreach ($booking->attendees as $attendee)
         <div class="ticket">
             <div class="ticket-header">
-                <img class="logo" src="{{ asset('storage/images/horizontalLogo-02.svg') }}" alt="{{ config('app.name') }}">
+                <img class="logo" src="{{ asset('storage/images/khasabclub_logo-removebg-preview.png') }}" alt="{{ config('app.name') }}">
                 <span class="ticket-badge" dir="ltr">{{ $attendee->ticket_number }}</span>
             </div>
 

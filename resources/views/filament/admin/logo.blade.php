@@ -1,1 +1,1 @@
-<img src="{{ asset('storage/images/horizontalLogo-02.svg') }}" alt="Custom Logo" class="h-20">
+<img src="{{ asset('storage/images/khasabclub_logo-removebg-preview.png') }}" alt="Custom Logo" class="h-20">

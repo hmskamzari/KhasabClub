@@ -23,7 +23,7 @@
     <header class="bg-white border-b border-gray-100 sticky top-0 z-10">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between gap-4">
             <a href="{{ url('/') }}" class="flex items-center gap-3 min-w-0">
-                <img src="{{ $siteLogo ? asset('storage/' . $siteLogo) : asset('storage/images/horizontalLogo-02.svg') }}"
+                <img src="{{ $siteLogo ? asset('storage/' . $siteLogo) : asset('storage/images/khasabclub_logo-removebg-preview.png') }}"
                     alt="{{ $siteName }}" class="h-10 w-auto shrink-0">
                 <span class="font-bold text-lg text-gray-900 truncate">{{ $siteName }}</span>
             </a>

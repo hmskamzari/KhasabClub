@@ -27,7 +27,7 @@
     {{-- ── Header ── --}}
     <div class="bg-gradient-to-r from-brand to-brand-hover text-white">
         <div class="max-w-5xl mx-auto px-6 py-6 flex items-center justify-between">
-            <img src="{{ asset('storage/images/horizontalLogo-03.svg') }}" alt="Logo" class="h-14 w-auto shrink-0">
+            <img src="{{ asset('storage/images/khasabclub_logo-removebg-preview.png') }}" alt="Logo" class="h-14 w-auto shrink-0">
 
             <div class="flex items-center gap-3">
                 @if (app()->getLocale() === 'ar')
