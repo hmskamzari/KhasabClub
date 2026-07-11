@@ -318,7 +318,7 @@
                     {{-- Nav + Confirm --}}
                     <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                         <button type="button" wire:click="previousStep"
-                            class="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 text-gray-600 hover:text-gray-900 font-medium text-sm transition-colors border border-gray-200 rounded-xl hover:bg-gray-50 sm:w-auto">
+                            class="inline-flex items-center justify-center gap-2 px-5 py-3 bg-white text-gray-700 hover:text-gray-900 font-semibold text-base border-2 border-gray-300 rounded-xl hover:bg-gray-50 hover:border-gray-400 shadow-sm transition-colors sm:w-auto">
                             ← {{ __('event_booking.back') }}
                         </button>
 
