@@ -4,8 +4,6 @@
     $locale = app()->getLocale();
     $siteName = BookingSetting::get('site_name_' . $locale, config('app.name', 'Bookings'));
     $siteLogo = BookingSetting::get('site_logo');
-    $primaryColor = BookingSetting::get('primary_color', '#05602b');
-    $secondaryColor = BookingSetting::get('secondary_color', '#0da74c');
 @endphp
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', $locale) }}" dir="{{ $locale === 'ar' ? 'rtl' : 'ltr' }}">
@@ -17,7 +15,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="bg-gray-50 min-h-screen" style="--color-brand: {{ $primaryColor }}; --color-brand-hover: {{ $secondaryColor }};">
+<body class="bg-gray-50 min-h-screen">
 
     {{-- ── Header ── --}}
     <header class="bg-white border-b border-gray-100 sticky top-0 z-10">
@@ -78,7 +76,10 @@
                                 <img src="{{ asset('storage/' . $event->image) }}" alt="{{ $event->title }}"
                                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                             @else
-                                <div class="w-full h-full flex items-center justify-center text-5xl">🎟️</div>
+                                <div
+                                    class="w-full h-full flex items-center justify-center text-5xl bg-gradient-to-br from-brand to-brand-hover">
+                                    ⚽
+                                </div>
                             @endif
 
                             @if ($soldOut)

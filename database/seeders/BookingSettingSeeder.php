@@ -20,7 +20,7 @@ class BookingSettingSeeder extends Seeder
 
         BookingSetting::set('site_name_en', 'Khasab Club');
         BookingSetting::set('site_name_ar', 'نادي خصب');
-        BookingSetting::set('primary_color', '#0f766e');
-        BookingSetting::set('secondary_color', '#14b8a6');
+        BookingSetting::set('primary_color', '#05602b');
+        BookingSetting::set('secondary_color', '#0da74c');
     }
 }
