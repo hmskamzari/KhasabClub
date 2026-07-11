@@ -104,9 +104,12 @@
 
     {{-- ── Event Hero ── --}}
     <div class="bg-gradient-to-r from-brand to-brand-hover text-white">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-10">
-            {{-- Language Switcher --}}
-            <div class="flex justify-end mb-4">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 py-4 sm:py-5">
+            {{-- Logo + Language Switcher --}}
+            <div class="flex items-center justify-between gap-4 mb-3">
+                <img src="{{ asset('storage/images/khasabclub_logo-removebg-preview.png') }}" alt="Logo"
+                    class="h-20 sm:h-28 w-auto shrink-0">
+
                 @if (app()->getLocale() === 'ar')
                     <a href="{{ route('lang.switch', 'en') }}"
                         class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold bg-white/20 hover:bg-white/30 text-white rounded-full transition-colors">
@@ -120,17 +123,13 @@
                 @endif
             </div>
 
-            <div class="flex items-center justify-between gap-4">
-                <h1 class="text-2xl sm:text-3xl font-bold leading-tight">
-                    {{ $event->getTranslation('title', app()->getLocale()) }}
-                </h1>
-                <img src="{{ asset('storage/images/khasabclub_logo-removebg-preview.png') }}" alt="Logo"
-                    class="h-40 sm:h-40 w-auto shrink-0">
-            </div>
-            <p class="mt-2 text-blue-100 text-base sm:text-lg line-clamp-4">
+            <h1 class="text-xl sm:text-2xl font-bold leading-tight">
+                {{ $event->getTranslation('title', app()->getLocale()) }}
+            </h1>
+            <p class="mt-1.5 text-blue-100 text-sm sm:text-base line-clamp-2">
                 {{ $event->getTranslation('description', app()->getLocale()) }}
             </p>
-            <div class="mt-3 flex flex-wrap gap-x-5 gap-y-1 text-sm text-blue-200">
+            <div class="mt-2 flex flex-wrap gap-x-5 gap-y-1 text-sm text-blue-200">
                 <span>📍 {{ $event->getTranslation('location', app()->getLocale()) }}</span>
                 {{-- <span>📅 {{ $event->start_date->locale(app()->getLocale())->translatedFormat('M d') }} –
                     {{ $event->end_date->locale(app()->getLocale())->translatedFormat('M d, Y') }}</span> --}}
